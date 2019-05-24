@@ -15,9 +15,10 @@ public class Calculator {
 	
 	public Calculator(double LoanAmount, double AdditionalPayment, int NbrOfYears, double InterestRate) {
 		this.LoanAmount = LoanAmount;
-		this.AdditionalPayment = AdditionalPayment;
-		this.NumOfYears = NbrOfYears;
 		this.InterestRate = InterestRate;
+		this.NumOfYears = NbrOfYears;
+		this.AdditionalPayment = AdditionalPayment;
+		
 	}
 
 	public double getAdditionalPayment() {
@@ -49,20 +50,22 @@ public class Calculator {
 	}
 	
 		
-	public double CalculateInterest(double amount) {
+	public double CalculateInterest(double loan) {
 		double monthRate = InterestRate / 12;
-		double interest = amount * monthRate;
+		double interest = loan * monthRate;
 		return interest;
 	}
-	public double CalculatePMT() {
+	public double CalculatePMT()  {
 		double r = InterestRate / 12;
 		double n = NumOfYears * 12;
 		double p = LoanAmount;
 		double f = 0;
 		boolean t = false;
 		
-		double ConstantPayment = Math.abs(FinanceLib.pmt(r, n, p, f, t));
-		return ConstantPayment;
+		//double Payment = (p + CalculateTotalInterest()) / n;
+		
+		double Payment = Math.abs(FinanceLib.pmt(r, n, p, f, t));
+		return Payment;
 	}
 	
 	public double CalculateTotalPayment() {
