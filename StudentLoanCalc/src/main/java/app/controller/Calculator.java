@@ -1,6 +1,7 @@
 package app.controller;
 
 import org.apache.poi.ss.formula.functions.FinanceLib;
+
 import org.apache.poi.ss.formula.functions.Finance;
 
 public class Calculator {
@@ -49,12 +50,6 @@ public class Calculator {
 		LoanAmount = loanAmount;
 	}
 	
-		
-	public double CalculateInterest(double loan) {
-		double monthRate = InterestRate / 12;
-		double interest = loan * monthRate;
-		return interest;
-	}
 	public double CalculatePMT()  {
 		double r = InterestRate / 12;
 		double n = NumOfYears * 12;
@@ -62,10 +57,13 @@ public class Calculator {
 		double f = 0;
 		boolean t = false;
 		
-		//double Payment = (p + CalculateTotalInterest()) / n;
-		
 		double Payment = Math.abs(FinanceLib.pmt(r, n, p, f, t));
 		return Payment;
+	}
+		
+	public double CalculateInterest(double loan) {
+		double interest = loan * (double)(InterestRate / 12);
+		return interest;
 	}
 	
 	public double CalculateTotalPayment() {
@@ -73,15 +71,17 @@ public class Calculator {
 		double PPMT = 0;
 		double pv = LoanAmount;
 		
-		while(PPMT + AdditionalPayment < pv) {
+		do {
 			double PMT = CalculatePMT();
+			
 			PPMT = PMT - CalculateInterest(pv);
-			pv -= PPMT + AdditionalPayment;
-			interest += PMT-PPMT;
+			pv = pv - (PPMT + AdditionalPayment);
+			interest = interest + (PMT-PPMT);
 			System.out.println(PPMT+AdditionalPayment);
-		}
-		Double FinalInterest = CalculateInterest(pv);
-		return interest + LoanAmount + FinalInterest;
+		}while(PPMT + AdditionalPayment < pv);
+		
+		double APInterest = CalculateInterest(pv);
+		return interest + LoanAmount + APInterest;
 	}
 	
 	public double CalculateTotalInterest() {
