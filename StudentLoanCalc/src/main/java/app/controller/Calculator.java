@@ -80,7 +80,7 @@ public class Calculator {
 			
 			System.out.println(PPMT + AdditionalPayment);
 			
-		}while(PPMT + AdditionalPayment < pv);
+		}while(pv > PPMT + AdditionalPayment);
 		
 		double APInterest = CalculateInterest(pv);
 		double TotalPayment = ir + APInterest + LoanAmount;
