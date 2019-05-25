@@ -85,7 +85,9 @@ public class Calculator {
 		}while(PPMT + AdditionalPayment < pv);
 		
 		double APInterest = CalculateInterest(pv);
-		return interest + LoanAmount + APInterest;
+		double TotalPayment = interest + LoanAmount + APInterest;
+		
+		return TotalPayment;
 	}
 	
 	public double CalculateTotalInterest() {
