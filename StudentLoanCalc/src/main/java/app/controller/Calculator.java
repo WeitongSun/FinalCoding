@@ -75,9 +75,13 @@ public class Calculator {
 			double PMT = CalculatePMT();
 			
 			PPMT = PMT - CalculateInterest(pv);
+			
 			pv = pv - (PPMT + AdditionalPayment);
+			
 			interest = interest + (PMT-PPMT);
+			
 			System.out.println(PPMT+AdditionalPayment);
+			
 		}while(PPMT + AdditionalPayment < pv);
 		
 		double APInterest = CalculateInterest(pv);
