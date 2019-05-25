@@ -67,7 +67,7 @@ public class Calculator {
 	}
 	
 	public double CalculateTotalPayment() {
-		double interest = 0;
+		double ir = 0;
 		double PPMT = 0;
 		double pv = LoanAmount;
 		
@@ -78,14 +78,14 @@ public class Calculator {
 			
 			pv = pv - (PPMT + AdditionalPayment);
 			
-			interest = interest + (PMT-PPMT);
+			ir = ir + (PMT-PPMT);
 			
 			System.out.println(PPMT+AdditionalPayment);
 			
 		}while(PPMT + AdditionalPayment < pv);
 		
 		double APInterest = CalculateInterest(pv);
-		double TotalPayment = interest + APInterest + LoanAmount;
+		double TotalPayment = ir + APInterest + LoanAmount;
 		
 		return TotalPayment;
 	}
