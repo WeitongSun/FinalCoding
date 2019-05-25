@@ -68,17 +68,20 @@ public class Calculator {
 		double ir = 0;
 		double PPMT = 0;
 		double pv = LoanAmount;
+		double PAP;
 		
 		do {
 			double PMT = CalculatePMT();
 			
 			PPMT = PMT - CalculateInterest(pv);
 			
-			pv = pv - (PPMT + AdditionalPayment);
+			PAP = (PPMT + AdditionalPayment);
+			
+			pv = pv - PAP;
 			
 			ir = ir + (PMT-PPMT);
 			
-			System.out.println(PPMT + AdditionalPayment);
+			System.out.println(PAP);
 			
 		}while(pv > PPMT + AdditionalPayment);
 		
