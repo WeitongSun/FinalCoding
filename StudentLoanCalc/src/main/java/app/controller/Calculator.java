@@ -64,7 +64,7 @@ public class Calculator {
 		return interest;
 	}
 	
-	public double CalculateTotalPayment() {
+	public double CalTotalPayment() {
 		double ir = 0;
 		double PPMT = 0;
 		double pv = LoanAmount;
@@ -92,7 +92,7 @@ public class Calculator {
 	}
 	
 	public double CalTotalInterest() {
-		double TotalInterest = CalculateTotalPayment() - LoanAmount;
+		double TotalInterest = CalTotalPayment() - LoanAmount;
 		return TotalInterest;
 	}
 }
