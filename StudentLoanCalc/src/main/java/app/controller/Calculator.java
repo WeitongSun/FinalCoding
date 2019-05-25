@@ -14,10 +14,10 @@ public class Calculator {
 	
 	private double InterestRate;
 	
-	public Calculator(double LoanAmount, double AdditionalPayment, int NbrOfYears, double InterestRate) {
+	public Calculator(double LoanAmount, double AdditionalPayment, int NOfYears, double IRate) {
 		this.LoanAmount = LoanAmount;
-		this.InterestRate = InterestRate;
-		this.NumOfYears = NbrOfYears;
+		this.InterestRate = IRate;
+		this.NumOfYears = NOfYears;
 		this.AdditionalPayment = AdditionalPayment;
 		
 	}
