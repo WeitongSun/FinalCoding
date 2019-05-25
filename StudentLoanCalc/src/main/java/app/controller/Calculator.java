@@ -80,7 +80,7 @@ public class Calculator {
 			
 			ir = ir + (PMT-PPMT);
 			
-			System.out.println(PPMT+AdditionalPayment);
+			System.out.println(PPMT + AdditionalPayment);
 			
 		}while(PPMT + AdditionalPayment < pv);
 		
@@ -90,7 +90,7 @@ public class Calculator {
 		return TotalPayment;
 	}
 	
-	public double CalculateTotalInterest() {
+	public double CalTotalInterest() {
 		double TotalInterest = CalculateTotalPayment() - LoanAmount;
 		return TotalInterest;
 	}
