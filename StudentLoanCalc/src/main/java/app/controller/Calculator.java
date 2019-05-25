@@ -2,8 +2,6 @@ package app.controller;
 
 import org.apache.poi.ss.formula.functions.FinanceLib;
 
-import org.apache.poi.ss.formula.functions.Finance;
-
 public class Calculator {
 	
 	private double LoanAmount;
