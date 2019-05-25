@@ -32,8 +32,8 @@ public class Calculator {
 		return NumOfYears;
 	}
 
-	public void setNumOfYears(int d) {
-		NumOfYears = d;
+	public void setNumOfYears(int x) {
+		NumOfYears = x;
 	}
 
 	public double getInterestRate() {
